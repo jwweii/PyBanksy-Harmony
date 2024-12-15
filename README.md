@@ -1,6 +1,6 @@
 # Python Pipeline for Harmonized Banksy Clustering
 
-This repository provides a step-by-step pipeline for processing Xenium data, merging datasets, and performing clustering using Banksy and Harmony.
+This repository provides a step-by-step pipeline for processing Xenium data, merging datasets, and performing clustering using Banksy and Harmony. This pipeline is tailored for the computing environment in Ding Lab at WashU.
 
 ## Environment
 /diskmnt/Projects/Users/Evan.p/tools/miniconda3/envs/scanpy_env \
