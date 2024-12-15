@@ -13,7 +13,7 @@ eval "$(conda shell.bash hook)"
 conda activate scanpy_env
 
 # Run the Python script
-python /diskmnt/Projects/Users/Evan.p/scripts/Python/Banksy/Xenium_anndata_generator_v1.py \
+python /diskmnt/Projects/Users/Evan.p/scripts/Python/Banksy/src/Xenium_anndata_generator_v1.py \
     --csv_file "$CSV_FILE" \
     --Xenium_path "$XENIUM_PATH_COLUMN" \
     --output_dir "$OUTPUT_DIR" \

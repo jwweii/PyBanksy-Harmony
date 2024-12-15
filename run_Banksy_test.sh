@@ -29,7 +29,7 @@ eval "$(conda shell.bash hook)"
 conda activate "$CONDA_ENV"
 
 # Run the Python script
-python /diskmnt/Projects/Users/Evan.p/scripts/Python/Banksy/Xenium_Banksy_Harmony_v1.py \
+python /diskmnt/Projects/Users/Evan.p/scripts/Python/Banksy/src/Xenium_Banksy_Harmony_v1.py \
     --input_merged_anndata "$INPUT_FILE" \
     --output_dir "$OUTPUT_DIR" \
     --output_prefix "$OUTPUT_PREFIX" \

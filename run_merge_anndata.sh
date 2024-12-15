@@ -4,14 +4,14 @@
 INPUT_DIR="/diskmnt/Projects/MetNet_analysis/Colorectal/epeng/Xenium/Xenium_anndata"
 OUTPUT_FILE="/diskmnt/Projects/MetNet_analysis/Colorectal/epeng/Xenium/Xenium_merged_anndata/mCRC_Xenium_5K_11"
 LOG_FILE="/diskmnt/Projects/MetNet_analysis/Colorectal/epeng/Xenium/Xenium_merged_anndata/merge_and_stagger.log"
-GENE_FILE="/diskmnt/Projects/MetNet_analysis_2/Colorectal/Xenium/src/banksy/python/5K_gene_to_remove.tsv"
+GENE_FILE="/diskmnt/Projects/Users/Evan.p/scripts/Python/Banksy/5K_gene_to_remove.tsv"
 
 # Activate the Python environment
 eval "$(conda shell.bash hook)"
 conda activate scanpy_env
 
 # Run the Python script
-python /diskmnt/Projects/Users/Evan.p/scripts/Python/Banksy/Banksy/Xenium_anndata_merge_v2.py \
+python /diskmnt/Projects/Users/Evan.p/scripts/Python/Banksy/Banksy/src/Xenium_anndata_merge_v2.py \
     --input_dir "$INPUT_DIR" \
     --output_prefix "$OUTPUT_FILE" \
     --remove_genes_tsv "$GENE_FILE" \
