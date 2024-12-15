@@ -3,7 +3,7 @@
 This repository provides a step-by-step pipeline for processing Xenium data, merging datasets, and performing clustering using Banksy and Harmony.
 
 ## Environment
-/diskmnt/Projects/Users/Evan.p/tools/miniconda3/envs/scanpy_env
+/diskmnt/Projects/Users/Evan.p/tools/miniconda3/envs/scanpy_env \
 Python version of BANKSY: https://github.com/prabhakarlab/Banksy_py
 
 ---
