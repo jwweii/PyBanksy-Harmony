@@ -20,6 +20,48 @@ Run the following command:
 ```bash
 bash run_merge_anndata.sh
 ```
+
+#### **Arguments**
+
+##### **1. Required Arguments**
+- `--input_dir`  
+  - **Type**: String  
+  - **Description**: Path to the folder containing `.h5ad` files that need to be merged.  
+  - **Required**: Yes  
+
+- `--output_prefix`  
+  - **Type**: String  
+  - **Description**: Prefix for the output files. All resulting files will use this prefix.  
+  - **Required**: Yes  
+
+---
+
+##### **2. Optional Arguments**
+- `--remove_genes_tsv`  
+  - **Type**: String  
+  - **Description**: Path to a `.tsv` file containing a list of genes to remove from the data. If not provided, no genes are removed.  
+  - **Required**: No  
+
+---
+
+##### **3. Configuration Arguments**
+- `--samples_per_row`  
+  - **Type**: Integer  
+  - **Default**: `4`  
+  - **Description**: The number of samples to display per row in the spatial plot. Helps in organizing the visualization layout.
+
+- `--grid_width`  
+  - **Type**: Integer  
+  - **Default**: `5000`  
+  - **Description**: The width of each grid block when staggering spatial coordinates. Controls the spacing between samples.
+
+- `--grid_height`  
+  - **Type**: Integer  
+  - **Default**: `5000`  
+  - **Description**: The height of each grid block when staggering spatial coordinates. Controls the vertical spacing between samples.
+
+
+
 ### **Step 3: Run Banksy and Harmony, Then Perform Clustering**
 Run Banksy and Harmony for data integration, followed by clustering.
 
@@ -95,6 +137,7 @@ The following arguments are used in the `Banksy Harmonized Pipeline` script:
 
 ##### **Clustering Arguments**
 - `--run_clustering`:  
+  Leiden clustering is very slow for a dataset with million cells. Secuer clustering (https://doi.org/10.1186/s12864-022-08469-w) is an alternative ultrafast algorithm to save time.
   Specifies clustering method(s) to use. Options:
   - `"leiden"`: Run Leiden clustering.
   - `"secuer"`: Run Secuer clustering.
