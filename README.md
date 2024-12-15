@@ -1,4 +1,4 @@
-# Xenium Anndata Processing and Analysis Pipeline
+# Python Pipeline for Harmonized Banksy Clustering
 
 This repository provides a step-by-step pipeline for processing Xenium data, merging datasets, and performing clustering using Banksy and Harmony.
 
