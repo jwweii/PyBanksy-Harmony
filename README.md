@@ -27,3 +27,102 @@ Run the following command:
 ```bash
 bash run_Banksy.sh
 ```
+
+#### Banksy Harmonized Pipeline: Argument Descriptions
+
+The following arguments are used in the `Banksy Harmonized Pipeline` script:
+
+##### **Required Arguments**
+- `--input_merged_anndata`:  
+  Path to the input merged AnnData file. This is the primary input for the pipeline.
+  - **Type**: File path
+  - **Required**: Yes
+
+- `--output_dir`:  
+  Directory where the results will be saved.
+  - **Type**: Directory path
+  - **Required**: Yes
+
+---
+
+##### **Optional Arguments**
+- `--output_prefix`:  
+  Prefix for naming all output files. Default is `banksy`.
+  - **Type**: String
+  - **Default**: `"banksy"`
+
+- `--n_top_genes`:  
+  Number of top highly variable genes to retain for downstream analysis.
+  - **Type**: Integer
+  - **Default**: `2000`
+
+- `--k_geom`:  
+  Specifies the `K` parameter for Banksy initialization geometry.
+  - **Type**: Integer
+  - **Default**: `15`
+
+- `--max_m`:  
+  Maximum order for azimuthal transform (m-th order). Default is 1.
+  - **Type**: Integer
+  - **Default**: `1`
+
+- `--nbr_weight_decay`:  
+  Method for neighbor weight decay. Choose from:
+  - `"scaled_gaussian"`: Scaled Gaussian decay
+  - `"reciprocal"`: Reciprocal decay
+  - `"uniform"`: Uniform weights
+  - `"ranked"`: Ranked decay
+  - **Type**: String
+  - **Choices**: `"scaled_gaussian"`, `"reciprocal"`, `"uniform"`, `"ranked"`
+  - **Default**: `"scaled_gaussian"`
+
+- `--pca_dims`:  
+  Dimensionality for PCA reduction. Can specify multiple dimensions.
+  - **Type**: List of integers
+  - **Default**: `[20]`
+
+- `--lambda_list`:  
+  List of lambda parameters for Banksy optimization.
+  - **Type**: List of floats
+  - **Default**: `[0.8]`
+
+- `--harmony_batch_key`:  
+  Column name in the `AnnData` object used for Harmony batch correction.
+  - **Type**: String
+  - **Default**: `"dataset"`
+
+---
+
+##### **Clustering Arguments**
+- `--run_clustering`:  
+  Specifies clustering method(s) to use. Options:
+  - `"leiden"`: Run Leiden clustering.
+  - `"secuer"`: Run Secuer clustering.
+  - `"both"`: Run both methods.
+  - **Type**: String
+  - **Choices**: `"leiden"`, `"secuer"`, `"both"`
+  - **Default**: `"both"`
+
+- `--leiden_resolution`:  
+  Resolution parameter for Leiden clustering.
+  - **Type**: Float
+  - **Default**: `0.5`
+
+- `--secuer_resolution`:  
+  Resolution parameter for Secuer clustering.
+  - **Type**: Float
+  - **Default**: `1.0`
+
+---
+
+##### **Additional Options**
+- `--sample_id_column`:  
+  Column name in `adata.obs` that represents the sample ID. Used for data grouping.
+  - **Type**: String
+  - **Default**: `"dataset"`
+
+- `--plot`:  
+  Generate spatial scatter plots. Include this flag to enable plotting.
+  - **Type**: Boolean flag
+  - **Default**: `False`
+
