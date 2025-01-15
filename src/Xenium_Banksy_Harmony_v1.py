@@ -68,10 +68,38 @@ def main(args):
         # Step 5: Extract and save Banksy matrix
         banksy_matrix2 = banksy_dict['scaled_gaussian'][args.lambda_list[0]]['adata']
         banksy_matrix2.obsm['spatial'] = adata.obsm['spatial']
+        banksy_matrix2.obs['dataset__cell_id'] = banksy_matrix2.obs['dataset'].astype(str) + '__' + banksy_matrix2.obs['cell_id'].astype(str)
+
         banksy_matrix_file = os.path.join(args.output_dir, f"{args.output_prefix}_banksy_matrix.h5ad")
         if not os.path.exists(banksy_matrix_file):
             banksy_matrix2.write(banksy_matrix_file)
             print(f"Saved Banksy matrix to {banksy_matrix_file}")
+
+        num_components = banksy_matrix2.obsm['X_pca_harmony'].shape[1]
+        column_names = [f"Banksy_harmony_PC{i+1}" for i in range(num_components)]
+        print(column_names)
+
+        pca_harmony_df = pd.DataFrame(
+            banksy_matrix2.obsm['X_pca_harmony'], 
+            index=banksy_matrix2.obs['dataset__cell_id'], 
+            columns=column_names)
+
+        banksy_reduction_file = os.path.join(args.output_dir, f"{args.output_prefix}_banksy_reduction.csv")
+        pca_harmony_df.to_csv(banksy_reduction_file)
+        print(f"Banksy reduction file saved to {banksy_reduction_file}")
+
+        num_umap_components = banksy_matrix2.obsm['X_pca_harmony_umap'].shape[1]
+        umap_column_names = [f"UMAP{i+1}" for i in range(num_umap_components)]
+        print(umap_column_names)
+
+        pca_harmony_umap_df = pd.DataFrame(
+        banksy_matrix2.obsm['X_pca_harmony_umap'], 
+        index=banksy_matrix2.obs['dataset__cell_id'], 
+        columns=umap_column_names)
+
+        banksy_umap_file = os.path.join(args.output_dir, f"{args.output_prefix}_banksy_umap_reduction.csv")
+        pca_harmony_umap_df.to_csv(banksy_umap_file)
+        print(f"Banksy umap reduction file saved to {banksy_umap_file}")
             
         
         # Step 6: Clustering

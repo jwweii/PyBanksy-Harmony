@@ -141,7 +141,7 @@ The following arguments are used in the `Banksy Harmonized Pipeline` script:
 
 ##### **Clustering Arguments**
 - `--run_clustering`:  
-  Leiden clustering is very slow for a dataset with million cells. Secuer clustering (https://doi.org/10.1186/s12864-022-08469-w) is an alternative ultrafast algorithm to save time.
+  Leiden clustering is very slow for a dataset with million cells. Secuer clustering (https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010753]) is an alternative ultrafast algorithm to save time.
   Specifies clustering method(s) to use. Options:
   - `"leiden"`: Run Leiden clustering.
   - `"secuer"`: Run Secuer clustering.

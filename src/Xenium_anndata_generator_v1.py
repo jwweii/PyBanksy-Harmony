@@ -75,8 +75,7 @@ def generate_anndata(csv_file_path, xenium_path_column, output_dir, filter_colum
             logging.info(f"Sample {sample_name} AnnData shape: {adata.shape}")
 
             # Perform QC and filter cells and genes
-            sc.pp.filter_cells(adata, min_counts=10)
-            sc.pp.filter_genes(adata, min_cells=5)
+            sc.pp.filter_cells(adata, min_counts=20, min_genes=10)
             logging.info(f"Sample {sample_name} post-QC AnnData shape: {adata.shape}")
 
             # Save the AnnData table to H5AD format
