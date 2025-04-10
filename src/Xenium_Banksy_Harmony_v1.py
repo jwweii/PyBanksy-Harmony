@@ -62,8 +62,8 @@ def main(args):
                 add_umap=True,
                 harmony_batch_key=args.harmony_batch_key
             )
-            pd.to_pickle(banksy_dict, harmony_checkpoint)
-            print(f"Saved Banksy dictionary with Harmony applied to {harmony_checkpoint}")
+            # pd.to_pickle(banksy_dict, harmony_checkpoint)
+            # print(f"Saved Banksy dictionary with Harmony applied to {harmony_checkpoint}")
 
         # Step 5: Extract and save Banksy matrix
         banksy_matrix2 = banksy_dict['scaled_gaussian'][args.lambda_list[0]]['adata']
@@ -100,6 +100,11 @@ def main(args):
         banksy_umap_file = os.path.join(args.output_dir, f"{args.output_prefix}_banksy_umap_reduction.csv")
         pca_harmony_umap_df.to_csv(banksy_umap_file)
         print(f"Banksy umap reduction file saved to {banksy_umap_file}")
+
+        # Save final annotated matrix
+        final_output = os.path.join(args.output_dir, f"{args.output_prefix}_final_banksy_matrix.h5ad")
+        banksy_matrix2.write(final_output)
+        print(f"Saved final Banksy matrix to {final_output}")
             
         
         # Step 6: Clustering

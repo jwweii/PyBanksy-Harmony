@@ -1,23 +1,23 @@
 #!/bin/bash
 
 # Define paths and parameters
-INPUT_FILE="/diskmnt/Projects/MetNet_analysis/Colorectal/epeng/Xenium/Python_banksy_pipeline_test/merged_samples/merged.h5ad"  # Path to input merged AnnData file
-OUTPUT_DIR="/diskmnt/Projects/MetNet_analysis/Colorectal/epeng/Xenium/Python_banksy_pipeline_test/"          # Directory to save output files
-OUTPUT_PREFIX="Test_banksy_analysis"                 # Prefix for all output files
+INPUT_FILE="/diskmnt/Projects/MetNet_analysis/Colorectal/epeng/Xenium/Xenium_merged_anndata/mCRC_Xenium_5K_21_merged.h5ad"  # Path to input merged AnnData file
+OUTPUT_DIR="/diskmnt/Projects/MetNet_analysis_2/Colorectal/Xenium/Banksy/mCRC_Xenium_5K_N21/VG2000_K15M0L8PC20leR5"          # Directory to save output files
+OUTPUT_PREFIX="mCRC_Xenium_5K_N21_VG2000_K15M0L8PC20leR5"                 # Prefix for all output files
 LOG_FILE="${OUTPUT_DIR}/banksy_pipeline.log"    # Path to log file
 CONDA_ENV="scanpy_env"                          # Name of the Conda environment to use
 
 # Define Banksy parameters
 N_TOP_GENES=2000
 K_GEOM=15
-MAX_M=1
+MAX_M=0
 NBR_WEIGHT_DECAY="scaled_gaussian"
 PCA_DIMS=20
 LAMBDA_VALUE=0.8
 HARMONY_BATCH_KEY="dataset"
 RUN_CLUSTERING="both"                           # Options: "leiden", "secuer", or "both"
 LEIDEN_RESOLUTION=0.5
-SECUER_RESOLUTION=1.0
+SECUER_RESOLUTION=1.2
 SAMPLE_ID_COLUMN="dataset"
 PLOT="true"                                     # Set to "true" to generate a spatial scatter plot
 
