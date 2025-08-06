@@ -9,5 +9,9 @@ https://github.com/jwweii/PyBanksy-Harmony/tree/main?tab=readme-ov-file
 1. Modify paths and parameters in the ``Run_All.sh`` file
 2. Modify the ``Xenium_tracking.csv`` to include sample info to run.
 
+The run usually takes a long time, so it's recommended to start a tmux session and then  
+ ``bash Run_All.sh`` to start. 
+- Check log files for any initial error messages
+
 ## Note 
 Currently referencing script as absolute path to the katmai folder - aka will not work out-of-box if copied to different places
