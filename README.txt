@@ -4,3 +4,6 @@ Modified from Evan's banksy pipeline to speed up anndata generation and screamli
 # To use
 - copy content in "workflow2_master" folder. 
 - This streamlined version that call scripts in "workflow2_subworkflow" to run 3 processes automatically. 
+
+# Note 
+Currently referencing script as absolute path to the katmai folder - aka will not work out-of-box if copy to different places
