@@ -2,8 +2,11 @@
 
 This repository provides a step-by-step pipeline for processing Xenium data, merging datasets, and performing clustering using Banksy and Harmony. This pipeline is tailored for the computing environment in Ding Lab at WashU.
 
+For the latest one-click solution, please see Simon’s repository:
+https://github.com/simoncmo/PyBanksy-Harmony-master/tree/main
+
 ## Environment
-/diskmnt/Projects/Users/Evan.p/tools/miniconda3/envs/scanpy_env \
+/diskmnt/Users2/simonmo/Software/miniforge3/envs/banksy \
 Python version of BANKSY: https://github.com/prabhakarlab/Banksy_py
 
 ---
